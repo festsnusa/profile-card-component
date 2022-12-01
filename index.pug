@@ -1,0 +1,32 @@
+mixin createInfoBlock(data)
+  each value in data 
+    .card__block 
+      .card__title= value["title"]
+      .card__subtitle= value["subtitle"]
+
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Profile Card Component
+    link(rel="stylesheet", href="./style.css")
+  body 
+    main.container
+      .card 
+        .card__header 
+          img.card__background(src="./images/bg-pattern-card.svg", alt="card")
+        .card__main
+          img.card__image(src="./images/image-victor.jpg", alt="profile")
+          .card__box
+            .card__name Victor Crest 
+            .card__age 26
+          .card__location London
+          hr
+        .card__footer
+          +createInfoBlock([
+            {"title": "80K", "subtitle": "Followers"},
+            {"title": "803K", "subtitle": "Likes"},
+            {"title": "1.4K", "subtitle": "Photos"},
+          ])
